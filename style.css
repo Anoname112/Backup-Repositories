@@ -1,0 +1,27 @@
+*, body {
+	margin: 0;
+	padding: 0;
+	font-family: "Tahoma", "Trebuchet MS", "Arial", "Helvetica";
+	font-size: 13px;
+}
+
+.container {
+	
+}
+
+.searchdiv {
+	padding: 10px;
+	background-color: #D2691E;
+}
+
+#searchusername, #searchbutton, #downloadbutton {
+	padding: 5px;
+}
+
+#searchbutton:hover, #downloadbutton:hover {
+	cursor: pointer;
+}
+
+#result {
+	padding: 10px;
+}
