@@ -20,31 +20,34 @@ function httpGet (url, index) {
 }
 
 function searchUserRepositories () {
-	// Get user repositories data
-	repos = [];
-	for (var i = 0; ; i++) {
-		var url = 'https://api.github.com/users/' + searchusername.value + '/repos?per_page=100&page=' + (i + 1);
-		httpGet(url, i);
-		if (repos[i].length < 100) break;
-	}
-	
-	// Construct result string and store zips url
 	var string = '';
-	if (repos[0] === undefined) string = 'Error: Failed to get user repositories.';
-	else {
-		zips = [];
-		var repoCount = 0;
-		for (var i = 0; i < repos.length; i++) {
-			for (var j = 0; j < repos[i].length; j++) {
-				var name = repos[i][j].full_name;
-				var zip = 'https://github.com/' + name + '/archive/refs/heads/main.zip';
-				zips.push(zip);
-				string += '<a href="' + zip + '">' + name + '</a><br />';
-				repoCount++;
-			}
+	if (searchusername.value.length > 0) {
+		// Get user repositories data
+		repos = [];
+		for (var i = 0; ; i++) {
+			var url = 'https://api.github.com/users/' + searchusername.value + '/repos?per_page=100&page=' + (i + 1);
+			httpGet(url, i);
+			if (repos[i].length < 100) break;
 		}
-		string = '<input type="button" id="downloadbutton" onclick="downloadAll()" value="Download All ' + repoCount + ' Repositories"><br /><br />' + string;
+		
+		// Construct result string and store zips url
+		if (repos[0] === undefined) string = 'Error: Failed to get user repositories.';
+		else {
+			zips = [];
+			var repoCount = 0;
+			for (var i = 0; i < repos.length; i++) {
+				for (var j = 0; j < repos[i].length; j++) {
+					var name = repos[i][j].full_name;
+					var zip = 'https://github.com/' + name + '/archive/refs/heads/main.zip';
+					zips.push(zip);
+					string += '<a href="' + zip + '">' + name + '</a><br />';
+					repoCount++;
+				}
+			}
+			string = '<input type="button" id="downloadbutton" onclick="downloadAll()" value="Download All ' + repoCount + ' Repositories"><br /><br />' + string;
+		}
 	}
+	else string = 'Error: Username can not be empty.';
 	
 	result.innerHTML = string;
 }
