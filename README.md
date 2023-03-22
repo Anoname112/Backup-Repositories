@@ -4,5 +4,5 @@ Live Demo: https://anoname112.github.io/Backup-Repositories/
 Screenshot:
 <br />
 <a href="https://anoname112.github.io/Backup-Repositories/">
-   <img src="https://raw.githubusercontent.com/Anoname112/Backup-Repositories/main/ss.png" title="Backup Repositories" height="400">
+   <img src="https://raw.githubusercontent.com/Anoname112/Backup-Repositories/main/ss.png" title="Backup Repositories">
 </a>
