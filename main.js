@@ -6,6 +6,15 @@ var result;
 var repos;
 var zips;
 
+window.onload = function () {
+	d = document;
+	searchusername = d.getElementById('searchusername');
+	searchbutton = d.getElementById('searchbutton');
+	result = d.getElementById('result');
+	
+	searchusername.focus();
+}
+
 function httpGet (url, index) {
 	if (window.XMLHttpRequest) xmlhttp = new XMLHttpRequest();
 	else xmlhttp=new ActiveXObject('Microsoft.XMLHTTP');    // for IE6, IE5
@@ -56,13 +65,4 @@ function downloadAll () {
 	for (var i = 0; i < zips.length; i++) {
 		window.open(zips[i], '_blank');
 	}
-}
-
-window.onload = function () {
-	d = document;
-	searchusername = d.getElementById('searchusername');
-	searchbutton = d.getElementById('searchbutton');
-	result = d.getElementById('result');
-	
-	searchusername.focus();
 }
