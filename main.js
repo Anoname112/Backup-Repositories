@@ -17,7 +17,7 @@ window.onload = function () {
 
 function httpGet (url, index) {
 	if (window.XMLHttpRequest) xmlhttp = new XMLHttpRequest();
-	else xmlhttp=new ActiveXObject('Microsoft.XMLHTTP');    // for IE6, IE5
+	else xmlhttp = new ActiveXObject('Microsoft.XMLHTTP');    // for IE6, IE5
 	
 	xmlhttp.onreadystatechange = function () {
 		if (xmlhttp.readyState == 4 && xmlhttp.status == 200) repos[index] = JSON.parse(xmlhttp.responseText);
