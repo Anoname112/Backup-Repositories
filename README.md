@@ -1,4 +1,6 @@
 # Backup-Repositories
+Backup repositories as .zip files. Only works for public repositories
+
 Live Demo: https://anoname112.github.io/Backup-Repositories/
 <br /><br />
 Screenshot:
